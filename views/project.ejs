@@ -1,0 +1,28 @@
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+            <img src="/images/<%= project.img %>" class="card-img-top" alt="<%= project.titre %>">
+        <h1 class="text-center mb-3">
+            Maj Project
+        </h1>
+        <p class="lead mb-3 m-auto">Welcome <%= name %></p>
+        <form action="/maj/<%= project.id %>" method="POST">
+            <div class="form-group">
+            <label for="titre">Titre</label>
+            <input type="text" name="titre" id="titre" class="form-control" value="<%= project.titre %>">
+            </div>
+            <div class="form-group">
+                <label for="paragraphe">Paragraphe</label>
+                <textarea type="textarea" name="paragraphe" id="paragraphe" class="form-control"><%= project.paragraphe %></textarea>
+            </div>
+            <div class="form-group">
+                <label for="Lien">Lien</label>
+                <input type="text" name="lien" id="lien" class="form-control" value="<%= project.lien %>">
+            </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>

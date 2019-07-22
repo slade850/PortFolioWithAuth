@@ -1,0 +1,15 @@
+
+<div class="card-group">
+<% if( typeof projects != undefined) { %>
+  <% for(var i=0; i < projects.length; i++) { %>
+    <div class="card" style="width: 25rem;">
+      <img src="images/<%= projects[i].img %>" class="card-img-top" alt="<%= projects[i].titre %>">
+    <div class="card-body">
+      <h5 class="card-title"><%= projects[i].titre %></h5>
+      <p class="card-text"><%= projects[i].paragraphe %></p>
+    </div>
+    <a href="<%= projects[i].lien %>" class="btn btn-primary">voir le projet</a>
+    </div>
+<% }} %>
+</div>
+

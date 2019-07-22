@@ -1,0 +1,47 @@
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <h1 class="text-center mb-3">
+            <i class="far fa-folder-open"></i> Add Project
+        </h1>
+        <% include ./partials/messages %>
+        <p class="lead mb-3 m-auto">Welcome <%= name %></p>
+        <form action="/add" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+            <label for="titre">Titre</label>
+            <input type="text" name="titre" id="titre" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="paragraphe">Paragraphe</label>
+                <textarea type="textarea" name="paragraphe" id="paragraphe" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="Lien">Lien</label>
+                <input type="textarea" name="lien" id="lien" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="photo">Photo</label>
+                <input type="file" name="photo" id="photo" accept="image/png, image/jpeg">
+            </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+<div class="card-group">
+ <% if( typeof projects != undefined) { %>
+  <% for(var i=0; i < projects.length; i++) { %>
+  <div class="card" style="width: 18rem;">
+    <img src="images/<%= projects[i].img %>" class="card-img-top" alt="<%= projects[i].titre %>">
+    <div class="card-body">
+      <h5 class="card-title"><%= projects[i].titre %></h5>
+      <p class="card-text"><%= projects[i].paragraphe %></p>
+      <a href="/maj/<%= projects[i].id %>" class="btn btn-primary">modifier</a>
+      <a href="/del/<%= projects[i].id %>" class="btn btn-primary">supprimer</a>
+    </div>
+  </div>
+<% }} %>
+</div>
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
