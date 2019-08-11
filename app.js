@@ -7,6 +7,7 @@ const passport = require('passport');
 
 const app = express();
 
+
 //Passport config
 require('./config/passport')(passport);
 
@@ -17,8 +18,10 @@ const db = require('./config/keys').MongoURI;
 mongoose.connect(db, { useNewUrlParser: true })
     .then(() => console.log('Mongo connecter...'))
     .catch(err => console.log(err));
+    
+mongoose.set('useFindAndModify', false);
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 //Bodyparser
 app.use(express.urlencoded({ extended: false }));

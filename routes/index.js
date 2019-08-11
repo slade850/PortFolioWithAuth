@@ -62,27 +62,41 @@ router.get('/maj/:project_id', ensureAuthenticated, (req, res) => {
 })
 
 //put
-router.post('/maj/:project_id', ensureAuthenticated, (req, res) => {
-    Project.findById(req.params.project_id, (err, project) => {
-        if (err){
-            res.send(err);
-        }
-        project.titre = req.body.titre;
-        project.paragraphe = req.body.paragraphe;
-        project.lien = req.body.lien;
-        project.save((err) =>{
-            if(err){
-                res.send(err);
-            }
-            req.flash('success_msg', 'All change are done');
-            res.redirect('/dashboard');
-        });                
+router.post('/maj/:project_id', ensureAuthenticated, upload.single('photo'), (req, res) => {
+
+    const updates = {
+        titre: req.body.titre,
+        paragraphe: req.body.paragraphe,
+        lien: req.body.lien
+    }
+
+    if (req.file) {
+        Project.findById(req.params.project_id, (err, project) => {
+            fs.unlink('./public/images/' + project.img, (err) => {
+                if(err){
+                    res.send(err);
+                }
+            });
+        })
+        updates.img = req.file.filename;
+    }
+    Project.findByIdAndUpdate(req.params.project_id, {
+        $set: updates
+    }, {
+        new: true
+    }).then(post => {
+        req.flash('success_msg', 'All change are done');
+        res.redirect('/dashboard');
+    })
+    .catch(err => {
+        return req.flash('error', 'Unable to edit article');
     });
-});
+})
+
 
 //delete
-router.get('/del/:project_id', ensureAuthenticated, (req, res) => { 
-    Project.findById(req.params.project_id, (err, project) => {
+router.post('/del/:project_id', ensureAuthenticated, (req, res) => { 
+    Project.findByIdAndDelete(req.params.project_id, (err, project) => {
         if(err){
             res.send(err);
         }
@@ -90,15 +104,10 @@ router.get('/del/:project_id', ensureAuthenticated, (req, res) => {
             if(err){
                 res.send(err);
             }
+            req.flash('success_msg', 'Project delete successful');
+            res.redirect('/dashboard');
         })
-    })
-    Project.remove({_id: req.params.project_id }, (err, project) => {
-        if (err){
-            res.send(err); 
-        }
-        req.flash('success_msg', 'Project delete successful');
-        res.redirect('/dashboard');
-    }); 
+    }) 
 });
 
 module.exports = router;

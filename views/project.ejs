@@ -6,7 +6,7 @@
             Maj Project
         </h1>
         <p class="lead mb-3 m-auto">Welcome <%= name %></p>
-        <form action="/maj/<%= project.id %>" method="POST">
+        <form action="/maj/<%= project.id %>" method="POST" enctype="multipart/form-data">
             <div class="form-group">
             <label for="titre">Titre</label>
             <input type="text" name="titre" id="titre" class="form-control" value="<%= project.titre %>">
@@ -18,6 +18,10 @@
             <div class="form-group">
                 <label for="Lien">Lien</label>
                 <input type="text" name="lien" id="lien" class="form-control" value="<%= project.lien %>">
+            </div>
+            <div class="form-group">
+                <label for="photo">Photo</label>
+                <input type="file" name="photo" id="photo" accept="image/png, image/jpeg">
             </div>
           <button type="submit" class="btn btn-primary btn-block">
             Submit
