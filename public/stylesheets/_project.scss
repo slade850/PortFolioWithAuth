@@ -1,0 +1,48 @@
+
+#containerProject{
+    text-align: center;
+
+    hr{
+        width: 10%;
+        padding-bottom: 30px;
+        border-radius: 50%;
+        margin: auto;
+    }
+}
+.project{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+
+    .textProject{
+        width: 45%;
+        align-self: center;
+    }
+
+    .imgProject{
+        width: 60%;
+        height: 100%;
+        background-size: cover;
+        background-attachment: fixed;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 25% 100%);
+    }
+}
+
+.project1{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+
+    .textProject{
+        width: 45%;
+        align-self: center;
+    }
+
+    .imgProject{
+        width: 60%;
+        height: 100%;
+        background-size: cover;
+        background-attachment: fixed;
+        clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
+    }
+}

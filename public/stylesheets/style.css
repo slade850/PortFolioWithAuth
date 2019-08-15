@@ -1,0 +1,82 @@
+#containerProject {
+  text-align: center;
+}
+
+#containerProject hr {
+  width: 10%;
+  padding-bottom: 30px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.project {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.project .textProject {
+  width: 45%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.project .imgProject {
+  width: 60%;
+  height: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 25% 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 25% 100%);
+}
+
+.project1 {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.project1 .textProject {
+  width: 45%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.project1 .imgProject {
+  width: 60%;
+  height: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  -webkit-clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  max-width: 1920px;
+  margin: auto;
+}
+
+body header {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+body header #bigTitle {
+  position: absolute;
+  top: 40%;
+  left: 20%;
+}
+/*# sourceMappingURL=style.css.map */

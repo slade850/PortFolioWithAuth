@@ -1,15 +1,98 @@
 
-<div class="card-columns">
+<header>
+  <div id="bigTitle">
+    <h1>Julien Bardin</h1>
+    <h2>Développeur FullStack JavaScript</h2>
+  </div>
+</header>
+<section id="containerProject">
+  <h2>Projet</h2>
+  <hr>
+  <div id="projectContent">
 <% if( typeof projects != undefined) { %>
+  <% let x = 0; %>
   <% for(var i=0; i < projects.length; i++) { %>
-    <div class="card" style="width: 25rem;">
-      <img src="images/<%= projects[i].img %>" class="card-img-top" alt="<%= projects[i].titre %>">
-    <div class="card-body">
-      <h5 class="card-title"><%= projects[i].titre %></h5>
-      <p class="card-text"><%= projects[i].paragraphe %></p>
-    </div>
-    <a href="<%= projects[i].lien %>" class="btn btn-primary">voir le projet</a>
+    <div class="cardProject">
+    <% if(x == 0){ %>
+      <div class="project">
+          <div class="textProject">
+            <div>
+              <h3><%= projects[i].titre %></h3>
+              <p><%= projects[i].paragraphe %></p>
+              <a href="<%= projects[i].lien %>" class="btn btn-primary">voir le projet</a>
+            </div>
+          </div>
+          <div class="imgProject" style="background-image: url('images/<%= projects[i].img %>')">
+          </div>
+      </div>
+      <% x = 1; } else { %>    
+      <div class="project1">
+        <div class="imgProject" style="background-image: url('images/<%= projects[i].img %>')">
+        </div>
+        <div class="textProject">
+          <div>
+            <h3><%= projects[i].titre %></h3>
+            <p><%= projects[i].paragraphe %></p>
+            <a href="<%= projects[i].lien %>" class="btn btn-primary">voir le projet</a>
+          </div>
+        </div>
+      </div>
+      <% x = 0; } %>
     </div>
 <% }} %>
-</div>
+  </div>
+</section>
 
+<section id="Contact">
+<div class="row mt-5">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <h1 class="text-center mb-3"><i class="fas fa-file-contract"></i>Contact</h1>
+      <% include ./partials/messages %>
+      <form action="/contact" method="POST">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            class="form-control"
+            placeholder="First Name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            class="form-control"
+            placeholder="Last Name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea 
+          class="form-control" 
+          id="message" 
+          name="message" 
+          placeholder="Your message"
+          rows="3">
+          </textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+</section>

@@ -16,7 +16,7 @@ const db = require('./config/keys').MongoURI;
 
 //Connection à mongo
 mongoose.connect(db, { useNewUrlParser: true })
-    .then(() => console.log('Mongo connecter...'))
+    .then(() => console.log('Mongo connected...'))
     .catch(err => console.log(err));
     
 mongoose.set('useFindAndModify', false);
@@ -55,5 +55,6 @@ app.use(express.static(__dirname + '/public'));
 
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
+app.use('/contact', require('./routes/contact'));
 
 app.listen(PORT, console.log(`server started on port ${PORT}`));
