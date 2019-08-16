@@ -1,0 +1,23 @@
+<% include ./partials/adminNav %>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 m-auto">
+            <div class="card card-body">
+            <h1 class="text-center mb-3"><i class="fas fa-file-contract"></i>Response</h1>
+            <form action="/contact/response/<%= contact._id %>" method="POST">
+                <div class="form-group">
+                <label for="message">Message</label>
+                <textarea 
+                class="form-control" 
+                id="message" 
+                name="message" 
+                placeholder="Your message"
+                rows="3">
+                </textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

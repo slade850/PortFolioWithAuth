@@ -1,0 +1,26 @@
+<% include ./partials/adminNav %>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Message</th>
+        <th scope="col">Repondre</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% if( typeof contact != undefined) { %>
+            <% for(let i=0; i < contact.length; i++) { %>
+                <tr>
+                    <th scope="row"><%= contact[i].date.toDateString() %></th>
+                    <td><%= contact[i].lastName %></td>
+                    <td><%= contact[i].firstName %></td>
+                    <td><%= contact[i].email %></td>
+                    <td><%= contact[i].message %></td>
+                    <td><button><a href="/contact/response/<%= contact[i]._id %>">Repondre</a></button></td>
+                </tr>
+        <% }} %>        
+    </tbody>
+  </table>

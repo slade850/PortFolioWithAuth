@@ -5,8 +5,21 @@
     <h2>Développeur FullStack JavaScript</h2>
   </div>
 </header>
+<section id="competences">
+  <h1>Compétences</h1>
+  <hr>
+  <ul>
+    <li><span>HTML - CSS </span><progress id="htmlCss" max="100" value="80"></progress> </li>
+    <li><span>SASS</span> <progress id="sass" max="100" value="80"></progress></li>
+    <li><span>JavaScript</span> <progress id="js" max="100" value="70"></progress></li>
+    <li><span>Node.js</span> <progress id="node" max="100" value="50"></progress></li>
+    <li><span>Mongodb</span> <progress id="mongo" max="100" value="70"></progress></li>
+    <li><span>Linux</span> <progress id="linux" max="100" value="80"></progress></li>
+    <li><span>Script Shell</span> <progress id="shell" max="100" value="80"></progress></li>
+  </ul>
+</section>
 <section id="containerProject">
-  <h2>Projet</h2>
+  <h1>Projet</h1>
   <hr>
   <div id="projectContent">
 <% if( typeof projects != undefined) { %>
@@ -17,7 +30,7 @@
       <div class="project">
           <div class="textProject">
             <div>
-              <h3><%= projects[i].titre %></h3>
+              <h2><%= projects[i].titre %></h2>
               <p><%= projects[i].paragraphe %></p>
               <a href="<%= projects[i].lien %>" class="btn btn-primary">voir le projet</a>
             </div>
@@ -44,6 +57,7 @@
 </section>
 
 <section id="Contact">
+<div class="container">
 <div class="row mt-5">
   <div class="col-md-6 m-auto">
     <div class="card card-body">
@@ -95,4 +109,8 @@
     </div>
   </div>
 </div>
+</div>
 </section>
+<footer>
+
+</footer>
