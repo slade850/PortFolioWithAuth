@@ -1,0 +1,25 @@
+#competences{
+    text-align: center;
+    width: 100%;
+
+    hr{
+        width: 10%;
+        padding-bottom: 30px;
+        margin: auto;
+    }
+    
+    li{
+        list-style: none;
+        width: 100%;
+
+        span{
+            width: 50%;
+        }
+        progress{
+            border: none;
+            width: 300px;
+            height: 30px;
+        }
+    }
+    
+}

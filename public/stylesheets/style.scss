@@ -1,4 +1,6 @@
 @import 'project';
+@import 'competences';
+@import 'contact';
 
 html {
     margin: 0;
@@ -20,28 +22,5 @@ body {
             left: 20%;
         }
     }
-
-    #competences{
-        text-align: center;
-        width: 100%;
-        
-        li{
-            list-style: none;
-            width: 100%;
-    
-            span{
-                width: 50%;
-            }
-            progress{
-                border: none;
-                width: 300px;
-                height: 30px;
-            }
-        }
-        
     }
-    #Contact {
-        width: 100%;
-    }
-}
 }
